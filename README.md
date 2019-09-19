@@ -17,7 +17,7 @@ Cara Install Self Bot :
 - Ketik -> `pip3 install humanfriendly`
 - Ketik -> `pip3 install googletrans`
 - Ketik -> `git clone https://github.com/opsaiooa/nadybot`
-- Ketik -> `cd BotLinePython3`
+- Ketik -> `cd nadybot`
 - Ketik -> `python3 Nadyasb.py`
 
 Cara Menjalankan Bot Kembali :

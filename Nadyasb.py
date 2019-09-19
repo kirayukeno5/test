@@ -511,6 +511,7 @@ def lineBot(op):
                 elif text.lower() == '助手':
                     try:
                         ret_ = "#### 中文指令 ####\n\n1.我 me\n2.我的mid mymid\n3.我的頭像 mypic\n4.我的影片 myvid\n5.我的主頁 mycover\n6.t searchyoutube\n\n7.抓友資 stealcontact\n8.mid stealmid\n9.名字 stealname\nA.抓簽名 stealbio\nB.抓頭像 stealpic\nC.抓影片 stealpic\nD.抓主頁 stealcover\n\nE.開群者 gcreator\nF.群id groupid\nG.群圖 grouppicture\nH.群名 groupname\nI.群網址 groupticket\nJ.網址 開/關 qr on/off\nK.群資料 ginfo\nL.成員名單 memberlist\nM.群組一覽 grouplist\nN.群標 mention\nO.已讀 開/關 lurking on/off\nP.已讀(未完成)\n\nQ.kalender\nR.日曆 台灣時間\nS.時刻 日本時間\n\nT.速度 sp\nU.重啟 restart\nV.關於 about\n"
+                        nadya.sendMessage(to, str(ret_))
 #==============================================================================#
                 elif text.lower() == 'me':
                     sendMessageWithMention(to, nadyaMID)

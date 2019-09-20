@@ -471,15 +471,27 @@ def lineBot(op):
                 elif text.lower() == 'autoadd on':
                     settings["autoAdd"] = True
                     nadya.sendMessage(to, "Berhasil mengaktifkan Auto Add")
+                elif text.lower() == '自動添加 開':
+                    settings["autoAdd"] = True
+                    nadya.sendMessage(to, "自動加好友通知啟動")
                 elif text.lower() == 'autoadd off':
                     settings["autoAdd"] = False
                     nadya.sendMessage(to, "Berhasil menonaktifkan Auto Add")
+                elif text.lower() == '自動添加 關':
+                    settings["autoAdd"] = False
+                    nadya.sendMessage(to, "自動加好友通知關閉")
                 elif text.lower() == 'autojoin on':
                     settings["autoJoin"] = True
                     nadya.sendMessage(to, "Berhasil mengaktifkan Auto Join")
+                elif text.lower() == '自動進群 開':
+                    settings["autoJoin"] = True
+                    nadya.sendMessage(to, "自動進群功能啟動")
                 elif text.lower() == 'autojoin off':
                     settings["autoJoin"] = False
                     nadya.sendMessage(to, "Berhasil menonaktifkan Auto Join")
+                elif text.lower() == '自動進群 關':
+                    settings["autoJoin"] = False
+                    nadya.sendMessage(to, "自動進群功能關閉")
                 elif text.lower() == 'autoleave on':
                     settings["autoLeave"] = True
                     nadya.sendMessage(to, "Berhasil mengaktifkan Auto Leave")
@@ -489,15 +501,27 @@ def lineBot(op):
                 elif text.lower() == 'autoread on':
                     settings["autoRead"] = True
                     nadya.sendMessage(to, "Berhasil mengaktifkan Auto Read")
+                elif text.lower() == '自動已讀 開':
+                    settings["autoRead"] = True
+                    nadya.sendMessage(to, "自動讀取功能啟動")
                 elif text.lower() == 'autoread off':
                     settings["autoRead"] = False
                     nadya.sendMessage(to, "Berhasil menonaktifkan Auto Read")
+                elif text.lower() == '自動已讀 關':
+                    settings["autoRead"] = False
+                    nadya.sendMessage(to, "自動讀取功能關閉")
                 elif text.lower() == 'checksticker on':
                     settings["checkSticker"] = True
                     nadya.sendMessage(to, "Berhasil mengaktifkan Check Details Sticker")
+                elif text.lower() == '確認貼圖 開':
+                    settings["checkSticker"] = True
+                    nadya.sendMessage(to, "詳細檢查貼圖訊息功能啟動")
                 elif text.lower() == 'checksticker off':
                     settings["checkSticker"] = False
                     nadya.sendMessage(to, "Berhasil menonaktifkan Check Details Sticker")
+                elif text.lower() == '確認貼圖 關':
+                    settings["checkSticker"] = False
+                    nadya.sendMessage(to, "詳細檢查貼圖訊息功能關閉")
                 elif text.lower() == 'detectmention on':
                     settings["datectMention"] = True
                     nadya.sendMessage(to, "Berhasil mengaktifkan Detect Mention")
@@ -510,7 +534,7 @@ def lineBot(op):
 			
                 elif text.lower() == '助手':
                     try:
-                        ret_ = "#### 中文指令 ####\n\n1.我 me\n2.我的mid mymid\n3.我的頭像 mypic\n4.我的影片 myvid\n5.我的主頁 mycover\n6.t searchyoutube\n\n7.抓友資 stealcontact\n8.mid stealmid\n9.名字 stealname\nA.抓簽名 stealbio\nB.抓頭像 stealpic\nC.抓影片 stealpic\nD.抓主頁 stealcover\n\nE.開群者 gcreator\nF.群id groupid\nG.群圖 grouppicture\nH.群名 groupname\nI.群網址 groupticket\nJ.網址 開/關 qr on/off\nK.群資料 ginfo\nL.成員名單 memberlist\nM.群組一覽 grouplist\nN.群標 mention\nO.已讀 開/關 lurking on/off\nP.已讀(未完成)\n\nQ.kalender\nR.日曆 台灣時間\nS.時刻 日本時間\n\nT.速度 sp\nU.重啟 restart\nV.關於 about\n"
+                        ret_ = "###〘中文指令〙###\n\n1.我 me\n2.我的mid mymid\n3.我的頭像 mypic\n4.我的影片 myvid\n5.我的主頁 mycover\n6.yt searchyoutube\n7.自動添加 開/關\n autoadd on/off\n8.自動進群 開/關\n autojoin on/off\n9.自動已讀 開/關\n autoread on/off\nA.確認貼圖 開/關\n checksticker on/off\n\nB.友資 contact\nC.mid stealmid\nD.名字 stealname\nE.個簽 stealbio\nF.頭像 stealpic\nG.頭像影片 stealvid\nH.主頁 stealcover\n\nI.開群者 gcreator\nJ.群id groupid\nK.群圖 grouppicture\nL.群名 groupname\nM.群網址 groupticket\nN.網址 開/關 qr on/off\nO.群資料 ginfo\nP.成員名單 memberlist\nQ.群組一覽 grouplist\nR.群標 mention\nS.已讀 開/關 lurking on/off\nT.已讀(未完成)\n\nU.kalender\nV.日曆 台灣時間\nW.時刻 日本時間\n\nX.速度 sp\nY.重啟 restart\nZ.關於 about\n"
                         nadya.sendMessage(to, str(ret_))
                     except Exception as e:
                         nadya.sendMessage(msg.to, str(e))
@@ -583,7 +607,7 @@ def lineBot(op):
                             contact = nadya.getContact(ls)
                             mi_d = contact.mid
                             nadya.sendContact(msg.to, mi_d)
-                elif msg.text.lower().startswith("抓友資 "):
+                elif msg.text.lower().startswith("友資 "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -634,7 +658,7 @@ def lineBot(op):
                         for ls in lists:
                             contact = nadya.getContact(ls)
                             nadya.sendMessage(msg.to, "[ Display Name ]\n" + contact.displayName)
-                elif msg.text.lower().startswith("抓名字 "):
+                elif msg.text.lower().startswith("名字 "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -658,7 +682,7 @@ def lineBot(op):
                         for ls in lists:
                             contact = nadya.getContact(ls)
                             nadya.sendMessage(msg.to, "[ Status Message ]\n{}" + contact.statusMessage)
-                elif msg.text.lower().startswith("抓簽名 "):
+                elif msg.text.lower().startswith("個簽 "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -694,7 +718,7 @@ def lineBot(op):
                         for ls in lists:
                             path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus
                             nadya.sendImageWithURL(msg.to, str(path))
-                elif msg.text.lower().startswith("抓頭像 "):
+                elif msg.text.lower().startswith("頭像 "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -730,7 +754,7 @@ def lineBot(op):
                         for ls in lists:
                             path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp"
                             nadya.sendImageWithURL(msg.to, str(path))
-                elif msg.text.lower().startswith("抓影片 "):
+                elif msg.text.lower().startswith("頭像影片 "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -753,9 +777,9 @@ def lineBot(op):
                                 if mention["M"] not in lists:
                                     lists.append(mention["M"])
                             for ls in lists:
-                                path = nadya.getProfileCoverURL(ls)
-                                nadya.sendImageWithURL(msg.to, path)
-                elif msg.text.lower().startswith("抓主頁 "):
+                                path = nadya.getProfileCoverURL(nadyaMID)
+                                nadya.sendImageWithURL(msg.to, str(path))
+                elif msg.text.lower().startswith("主頁 "):
                     if line != None:
                         if 'MENTION' in msg.contentMetadata.keys()!= None:
                             names = re.findall(r'@(\w+)', text)
@@ -766,8 +790,8 @@ def lineBot(op):
                                 if mention["M"] not in lists:
                                     lists.append(mention["M"])
                             for ls in lists:
-                                path = nadya.getProfileCoverURL(ls)
-                                nadya.sendImageWithURL(msg.to, path)
+                                path = nadya.getProfileCoverURL(nadyaMID)
+                                nadya.sendImageWithURL(msg.to, str(path))
                 elif msg.text.lower().startswith("cloneprofile "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -2619,7 +2643,7 @@ def lineBot(op):
                             a = items.index(path)
                             b = len(items)
                             nadya.sendImageWithURL(to, str(path))
-                elif "searchyoutube " in msg.text.lower():
+                elif "searchyoutube" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
                     params = {"search_query": search}
@@ -2637,7 +2661,7 @@ def lineBot(op):
                             ret_ += "\n╠ https://www.youtube.com{}".format(str(data["href"]))
                         ret_ += "\n╚══[ Total {} ]".format(len(datas))
                         nadya.sendMessage(to, str(ret_))
-                elif "yt " in msg.text.lower():
+                elif "yt" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
                     params = {"search_query": search}
@@ -2655,7 +2679,7 @@ def lineBot(op):
                             ret_ += "\n╠ https://www.youtube.com{}".format(str(data["href"]))
                         ret_ += "\n╚══[ Total {} ]".format(len(datas))
                         nadya.sendMessage(to, str(ret_))
-                elif "searchmusic " in msg.text.lower():
+                elif "searchmusic" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
                     params = {'songname': search}
@@ -2674,7 +2698,7 @@ def lineBot(op):
                                 nadya.sendAudioWithURL(to, song[3])
                         except:
                             nadya.sendMessage(to, "Musik tidak ditemukan")
-                elif "searchlyric " in msg.text.lower():
+                elif "searchlyric" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
                     params = {'songname': search}
@@ -2704,12 +2728,12 @@ def lineBot(op):
                     stk_id = msg.contentMetadata['STKID']
                     stk_ver = msg.contentMetadata['STKVER']
                     pkg_id = msg.contentMetadata['STKPKGID']
-                    ret_ = "╔══[ Sticker Info ]"
-                    ret_ += "\n╠ STICKER ID : {}".format(stk_id)
-                    ret_ += "\n╠ STICKER PACKAGES ID : {}".format(pkg_id)
-                    ret_ += "\n╠ STICKER VERSION : {}".format(stk_ver)
-                    ret_ += "\n╠ STICKER URL : line://shop/detail/{}".format(pkg_id)
-                    ret_ += "\n╚══[ Finish ]"
+                    ret_ = "╔══[ 貼圖訊息 ]"
+                    ret_ += "\n╠ 貼圖 ID : {}".format(stk_id)
+                    ret_ += "\n╠ 貼圖代碼 : {}".format(pkg_id)
+                    ret_ += "\n╠ 貼圖版本 : {}".format(stk_ver)
+                    ret_ += "\n╠ 貼圖網址 : line://shop/detail/{}".format(pkg_id)
+                    ret_ += "\n╚══[ 底 ]"
                     nadya.sendMessage(to, str(ret_))
                     
             elif msg.contentType == 13:

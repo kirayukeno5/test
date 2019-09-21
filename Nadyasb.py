@@ -534,7 +534,7 @@ def lineBot(op):
 			
                 elif text.lower() == '助手':
                     try:
-                        ret_ = "###〘中文指令〙###\n\n1.我 me\n2.我的mid mymid\n3.我的頭像 mypic\n4.我的影片 myvid\n5.我的主頁 mycover\n6.yt searchyoutube\n7.自動添加 開/關\n autoadd on/off\n8.自動進群 開/關\n autojoin on/off\n9.自動已讀 開/關\n autoread on/off\nA.確認貼圖 開/關\n checksticker on/off\n\nB.友資 contact\nC.mid stealmid\nD.名字 stealname\nE.個簽 stealbio\nF.頭像 stealpic\nG.頭像影片 stealvid\nH.主頁 stealcover\n\nI.開群者 gcreator\nJ.群id groupid\nK.群圖 grouppicture\nL.群名 groupname\nM.群網址 groupticket\nN.網址 開/關 qr on/off\nO.群資料 ginfo\nP.成員名單 memberlist\nQ.群組一覽 grouplist\nR.群標 mention\nS.已讀 開/關 lurking on/off\nT.已讀(未完成)\n\nU.kalender\nV.日曆 台灣時間\nW.時刻 日本時間\n\nX.速度 sp\nY.重啟 restart\nZ.關於 about\n"
+                        ret_ = "####〘中文指令〙####\n\n1.我 me\n2.我的mid mymid\n3.我的頭像 mypic\n4.我的影片 myvid\n5.我的主頁 mycover\n6.自動添加 開/關\n autoadd on/off\n7.自動進群 開/關\n autojoin on/off\n8.自動已讀 開/關\n autoread on/off\n9.確認貼圖 開/關\n checksticker on/off\n\nA.友資 stealcontact\nB.mid stealmid\nC.名字 stealname\nD.抓個簽 stealbio\nE.抓頭像 stealpic\nF.抓頭像影片 stealvid\nG.抓主頁 stealcover\n\nH.開群者 gcreator\nI.群id groupid\nJ.群圖 grouppicture\nK.群名 groupname\nL.群網址 groupticket\nM.網址 開/關 qr on/off\nN.群資料 ginfo\nO.成員名單 memberlist\nP.群組一覽 grouplist\nQ.群標 mention\n\nR.kalender(時間)\nS.日曆(台灣時間)\nT.時刻(日本時間)\n\nU.速度 sp\nV.重啟 restart\nW.關於 about\n\n ****底**** "
                         nadya.sendMessage(to, str(ret_))
                     except Exception as e:
                         nadya.sendMessage(msg.to, str(e))
@@ -681,7 +681,7 @@ def lineBot(op):
                                 lists.append(mention["M"])
                         for ls in lists:
                             contact = nadya.getContact(ls)
-                            nadya.sendMessage(msg.to, "[ Status Message ]\n{}" + contact.statusMessage)
+                            nadya.sendMessage(msg.to, "[ Status Message ]\n" + contact.statusMessage)
                 elif msg.text.lower().startswith("個簽 "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -693,7 +693,7 @@ def lineBot(op):
                                 lists.append(mention["M"])
                         for ls in lists:
                             contact = nadya.getContact(ls)
-                            nadya.sendMessage(msg.to, "[ Status Message ]\n{}" + contact.statusMessage)
+                            nadya.sendMessage(msg.to, "[ 狀態消息 ]\n" + contact.statusMessage)
                 elif msg.text.lower().startswith("stealpicture "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -752,8 +752,8 @@ def lineBot(op):
                             if mention["M"] not in lists:
                                 lists.append(mention["M"])
                         for ls in lists:
-                            path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp"
-                            nadya.sendImageWithURL(msg.to, str(path))
+                            path = nadya.getContact(nadyaMID)
+                            nadya.sendImageWithURL(msg.to, "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp")
                 elif msg.text.lower().startswith("頭像影片 "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -764,8 +764,8 @@ def lineBot(op):
                             if mention["M"] not in lists:
                                 lists.append(mention["M"])
                         for ls in lists:
-                            path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp"
-                            nadya.sendImageWithURL(msg.to, str(path))
+                            path = nadya.getContact(nadyaMID)
+                            nadya.sendImageWithURL(msg.to, "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp")
                 elif msg.text.lower().startswith("stealcover "):
                     if line != None:
                         if 'MENTION' in msg.contentMetadata.keys()!= None:

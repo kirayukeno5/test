@@ -740,7 +740,7 @@ def lineBot(op):
                             if mention["M"] not in lists:
                                 lists.append(mention["M"])
                         for ls in lists:
-                            path = "http://dl.profile.nadya.naver.jp/" + nadya.getContact(ls).pictureStatus + "/vp"
+                            path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp"
                             nadya.sendImageWithURL(msg.to, str(path))
                 elif msg.text.lower().startswith("stealvid "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
@@ -752,8 +752,8 @@ def lineBot(op):
                             if mention["M"] not in lists:
                                 lists.append(mention["M"])
                         for ls in lists:
-                            path = nadya.getContact(nadyaMID)
-                            nadya.sendImageWithURL(msg.to, "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp")
+                            path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp"
+                            nadya.sendImageWithURL(msg.to, str(path))
                 elif msg.text.lower().startswith("頭像影片 "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -764,8 +764,8 @@ def lineBot(op):
                             if mention["M"] not in lists:
                                 lists.append(mention["M"])
                         for ls in lists:
-                            path = nadya.getContact(nadyaMID)
-                            nadya.sendImageWithURL(msg.to, "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp")
+                            path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp"
+                            nadya.sendImageWithURL(msg.to, str(path))
                 elif msg.text.lower().startswith("stealcover "):
                     if line != None:
                         if 'MENTION' in msg.contentMetadata.keys()!= None:
